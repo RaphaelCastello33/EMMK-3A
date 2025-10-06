@@ -1,6 +1,6 @@
 # Setup de ROS
 todo cat "" > ~/.bashrc
-alias ssh
+alias ssh2023 
 ROS_USER_URL
 source /opt/tab/tab/setup.bash
 
@@ -36,16 +36,16 @@ __**@brief:**__ removes all unreachable nodes
 
 ## rosrun
 
-### rostopic pub
+### 
 
-__**@brief:**__ publishes to a topic
+__**@brief:**__ 
 
 
 ## rossrv
 
-### rostopic pub
+### 
 
-__**@brief:**__ publishes to a topic
+__**@brief:**__ 
 
 
 ## rostopic 
