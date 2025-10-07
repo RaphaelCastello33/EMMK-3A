@@ -76,6 +76,8 @@ images, labels, _ = next(iter(train_loader))
 
 print(f"dataloader.shape = {images.view(-1, 28*28).shape}")
 # train(training_set.img_list.view(-1, 784), training_set.label_list, training_set.num_classes )
+#print(f"{images.view(-1, 28*28).shape[0]}, {images.view(-1, 28*28).shape[1]}") # {128, 784}
+
 train(images, labels)
 
 input("")
