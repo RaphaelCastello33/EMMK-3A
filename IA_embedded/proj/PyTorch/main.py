@@ -12,15 +12,15 @@ std_norm = 0.3081
 training_set = MNISTDataset(path_MNIST_train, mean_norm=mean_norm, std_norm=std_norm)
 
 #%% Show 4 pairs of data
-# fig1, axs1 = plt.subplots(ncols=4)
+fig1, axs1 = plt.subplots(ncols=4)
 
-# offset = 7000
-# for i in range(4):
-#     image, label, _ = training_set[i+offset]
-#     axs1[i].imshow(T.ToPILImage()((image*std_norm)+mean_norm))
-#     axs1[i].set_title('True label {}'.format(label))
+offset = 7000
+for i in range(4):
+    image, label, _ = training_set[i+offset]
+    axs1[i].imshow(T.ToPILImage()((image*std_norm)+mean_norm))
+    axs1[i].set_title('True label {}'.format(label))
     
-# plt.pause(1.)
+plt.pause(1.)
 
 
 #%% Compute mean and std
@@ -46,32 +46,32 @@ train_loader = torch.utils.data.DataLoader(dataset = training_set,
 images, labels, _ = next(iter(train_loader))
 
 #%% Show 10 pairs of data
-# fig2, axs2 = plt.subplots(ncols=10)
-# for i in range(10):
-#     axs2[i].imshow(T.ToPILImage()((images[i,:,:,:]*std_norm)+mean_norm))
-#     axs2[i].set_title('{}'.format(labels[i]))
+fig2, axs2 = plt.subplots(ncols=10)
+for i in range(10):
+    axs2[i].imshow(T.ToPILImage()((images[i,:,:,:]*std_norm)+mean_norm))
+    axs2[i].set_title('{}'.format(labels[i]))
     
-# plt.pause(1.)
+plt.pause(1.)
 
-# print(f"image.shape = {images.shape}") # image.shape = 128x1x28x28 (taille minibatche = 128, 1 canal, image de 28x28 )
-# print(f"labels.shape = {labels.shape}") # image.shape = 128 (128 etiquettes)
+print(f"image.shape = {images.shape}") # image.shape = 128x1x28x28 (taille minibatche = 128, 1 canal, image de 28x28 )
+print(f"labels.shape = {labels.shape}") # image.shape = 128 (128 etiquettes)
 
 
-# path_MNIST_valid = './MNIST/Validation'                
-# valid_set = MNISTDataset(path_MNIST_valid)
-# valid_loader = torch.utils.data.DataLoader(dataset = valid_set,
-#                                        batch_size=batch_size,
-#                                        shuffle=False,#inutile de mélanger pour la validation
-#                                        num_workers=2)
+path_MNIST_valid = './MNIST/Validation'                
+valid_set = MNISTDataset(path_MNIST_valid)
+valid_loader = torch.utils.data.DataLoader(dataset = valid_set,
+                                       batch_size=batch_size,
+                                       shuffle=False,#inutile de mélanger pour la validation
+                                       num_workers=2)
 
 # Show 10 pairs of data
-#images, labels, _ = next(iter(valid_loader))
-# fig3, axs3 = plt.subplots(ncols=10)
-# for i in range(10):
-#     axs3[i].imshow(T.ToPILImage()((images[i,:,:,:]*std_norm)+mean_norm))
-#     axs3[i].set_title('{}'.format(labels[i]))
+images, labels, _ = next(iter(valid_loader))
+fig3, axs3 = plt.subplots(ncols=10)
+for i in range(10):
+    axs3[i].imshow(T.ToPILImage()((images[i,:,:,:]*std_norm)+mean_norm))
+    axs3[i].set_title('{}'.format(labels[i]))
     
-# plt.pause(1.)
+plt.pause(1.)
 
 
 print(f"dataloader.shape = {images.view(-1, 28*28).shape}")
