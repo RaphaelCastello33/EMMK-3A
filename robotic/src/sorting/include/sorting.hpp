@@ -10,7 +10,6 @@ private:
     std::string inputMsg;           // message à trier
     ros::Subscriber subscriber;     // Subscribed  to /hello
     ros::Publisher publisherSorted; // publie le message trié dans /sorted
-    ros::Publisher publisherHello;  // publie le message dans /hello
     ros::ServiceServer service;     // service ToggleSorting
 
 public:
@@ -25,7 +24,6 @@ public:
 
     // Publishers
     void publishSortedCallback();
-    void publishHelloCallback(const std::string& msg);
 
     // Services Handlers
     bool serviceCallback(sorting_msgs::ToggleSorting::Request&, sorting_msgs::ToggleSorting::Response& res);

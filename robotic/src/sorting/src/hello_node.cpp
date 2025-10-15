@@ -12,17 +12,9 @@ int main(int argc, char** argv) {
 
     ros::Publisher pub = nh.advertise<std_msgs::String>("hello", 10);
 
-    // on attend un court instant que ROS connecte le publisher au master
-    ros::Duration(0.5).sleep();
-
     std_msgs::String msg;
     msg.data = msg_to_send;
 
     pub.publish(msg);
-    ROS_INFO_STREAM("Published once on /hello: " << msg_to_send);
-
-    // on laisse un petit délai pour s'assurer que le message parte bien
-    ros::Duration(0.5).sleep();
-
     return 0;
 }

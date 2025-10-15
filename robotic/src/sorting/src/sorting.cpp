@@ -6,12 +6,11 @@
 #include "../include/sorting.hpp"
 #include <algorithm> // to sort the string #easierThatWay
 
-Sorting::Sorting(ros::NodeHandle& n_, bool toggleSorting_, const std::string& input_)
+Sorting::Sorting(ros::NodeHandle& n_, bool toggleSorting_, const std::string& input_)   // la est passe partout car copiable
 : toggleSorting(toggleSorting_), inputMsg(input_) {
-    publisherSorted = n_.advertise<std_msgs::String>("sorted", 10);                 // créer un advertiser appelé /sorted
-    publisherHello = n_.advertise<std_msgs::String>("hello", 10);                   // créer un advertiser appelé /hello
-    subscriber = n_.subscribe("hello", 10, &Sorting::subscribeCallback, this);      // se subscribe au topic /hello
-    service = n_.advertiseService("ToggleSorting", &Sorting::serviceCallback, this);// créer un service appelé /ToggleSorting
+    publisherSorted = n_.advertise<std_msgs::String>("sorting", 10);                    // créer un advertiser appelé /sorting
+    subscriber = n_.subscribe("hello", 10, &Sorting::subscribeCallback, this);          // se subscribe au topic /hello
+    service = n_.advertiseService("ToggleSorting", &Sorting::serviceCallback, this);    // créer un service appelé /ToggleSorting
 }
 
 /**
@@ -29,11 +28,6 @@ void Sorting::publishSortedCallback(){
     publisherSorted.publish(out);
 }
 
-void Sorting::publishHelloCallback(const std::string& msg){
-    std_msgs::String out;
-    out.data = msg;
-    publisherHello.publish(out);
-}
 
 void Sorting::subscribeCallback(const std_msgs::String::ConstPtr& msg){
     this->inputMsg = msg->data;   // on stocke la dernière string reçue

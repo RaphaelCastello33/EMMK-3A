@@ -3,7 +3,6 @@
   <name>sorting_msgs</name>
   <version>0.0.1</version>
   <description>Service definitions for sorting</description>
-
   <maintainer email="rouaf@todo.todo">rouaf</maintainer>
   <license>BSD</license>
 

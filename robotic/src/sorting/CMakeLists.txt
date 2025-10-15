@@ -23,7 +23,7 @@ add_executable(sorting_node
 
 add_executable(hello_node
   src/hello_node.cpp
-  src/sorting.cpp
+  src/sorting.cpp   # on peut surement l'enlever
 )
 
 target_link_libraries(sorting_node
