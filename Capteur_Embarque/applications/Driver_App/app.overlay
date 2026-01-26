@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2025, CATIE
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/sixtron-header.h>
+
+&sixtron_i2c {
+    status = "okay";
+    mysensor: mysensor@76 {
+        compatible = "catie,mysensor";
+        reg = <0x76>;
+    };
+};
