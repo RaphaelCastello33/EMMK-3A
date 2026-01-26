@@ -3,7 +3,7 @@ modifier le fichier ~/.bashrc et y ajouter les lignes ci-dessous **A LA FIN** du
 ```
 source /opt/ros/noetic/setup.bash      # pour pouvoir roscore
 source ~/catkin_ws/devel/setup.bash    # pour pouvoir run les pkg ajoutés
-export ROS_USER_URL=http://localhost:[le port que t'as shotgun]    # pour que roscore utilise le bon port
+export ROS_USER_URI=http://localhost:[le port que t'as shotgun]    # pour que roscore utilise le bon port
 alias ssh2023="ssh -X ros2023.zut.ipb.fr"  # pour se connecter au serveur ros de l'école (inutile si t'es sur VM)
 alias roscore="roscore -p [le port que t'as shotgun]"  # pour ne plus jamais avoir a écrire tt la ligne a chaque fois (tu peux utiliser roscore mtn)
 ```
